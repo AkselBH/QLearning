@@ -1,5 +1,5 @@
 __author__ = 'aksel'
 
-print "YOLO"
-my_name = "Aksel"
-print "Hej %s" % my_name
+
+my_name = "Aksel och Arnaud"
+print ("Hej %s" % my_name)

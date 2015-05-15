@@ -31,10 +31,10 @@ agent = LearningAgent(table, Q())
 experiment = Experiment(task, agent)
 
 plt.ion()
-plt.gray()
+#plt.gray()
 
 for i in range(1000):
-    experiment.doInteractions(100)
+    experiment.doInteractions(10)
     agent.learn()
     agent.reset()
 

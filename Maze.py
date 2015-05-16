@@ -10,16 +10,16 @@ from pybrain.rl.learners import Q, ActionValueTable
 from pybrain.rl.experiments import Experiment
 
 envmatrix = array([[1, 1, 1, 1, 1, 1, 1, 1, 1],
-                    [1, 0, 0, 0, 1, 0, 0, 0, 1],
-                    [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                    [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                    [1, 0, 1, 0, 1, 0, 1, 0, 1],
-                    [1, 0, 1, 0, 0, 0, 1, 0, 1],
-                    [1, 1, 1, 1, 1, 1, 1, 0, 1],
+                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                    [1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 0, 0, 0, 0, 1, 1, 0, 1],
+                    [1, 0, 1, 1, 1, 1, 1, 0, 1],
+                    [1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
                     [1, 0, 0, 0, 0, 0, 0, 0, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1]])
 
-environment = Maze(envmatrix, (7, 7))
+environment = Maze(envmatrix, (2, 7))
 
 task = MDPMazeTask(environment)
 
@@ -31,10 +31,11 @@ agent = LearningAgent(table, Q())
 experiment = Experiment(task, agent)
 
 plt.ion()
-#plt.gray()
+plt.gray()
+#plt.annotate(2)
 
 for i in range(1000):
-    experiment.doInteractions(10)
+    experiment.doInteractions(100)
     agent.learn()
     agent.reset()
 

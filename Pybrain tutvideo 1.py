@@ -15,11 +15,12 @@ D.addSample([1,1], [0])
 # 4 kombinationer av input och dess output "OR" funktion
 
 N = buildNetwork(2, 4, 1)
-# multilayer perception? med 1 gömt lager
+# multilayer perception? med 1 gomt lager
 
 T = BackpropTrainer(N, learningrate = 0.01, momentum = 0.99)
 # momentum = reduced learningrate
 
 print (('MSE before'), T.testOnData(D))
 T.trainOnDataset(D, 1000)
+T.trainUntilConvergence()
 print (('MSE after'), T.testOnData(D))

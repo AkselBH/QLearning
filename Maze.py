@@ -32,7 +32,6 @@ experiment = Experiment(task, agent)
 
 plt.ion()
 plt.gray()
-#plt.annotate(2)
 
 for i in range(1000):
     experiment.doInteractions(100)

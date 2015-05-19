@@ -26,14 +26,14 @@ environment = Maze(envmatrix, (7, 7))
 task = MDPMazeTask(environment)
 
 table = ActionValueTable(81, 4)
-table.initialize(1.)
+table.initialize(2.)
 
 agent = LearningAgent(table, Q())
 
 experiment = Experiment(task, agent)
 
 plt.ion()
-plt.gray()
+plt.hot()
 
 x = raw_input('Want to start?')
 yes = "yes"
@@ -41,7 +41,7 @@ no = "no"
 if x == yes:
 
     for i in range(1000):
-        experiment.doInteractions(1000)
+        experiment.doInteractions(100)
         agent.learn()
         agent.reset()
 

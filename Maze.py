@@ -11,15 +11,15 @@ from pybrain.rl.experiments import Experiment
 
 envmatrix = array([[1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                    [1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 0, 1, 1, 1, 1, 0, 0, 1],
                     [1, 0, 0, 0, 0, 1, 1, 0, 1],
                     [1, 0, 1, 1, 1, 1, 1, 0, 1],
-                    [1, 0, 1, 1, 0, 0, 0, 0, 1],
-                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
-                    [1, 0, 0, 0, 0, 0, 0, 0, 1],
+                    [1, 0, 1, 0, 0, 0, 0, 0, 1],
+                    [1, 0, 0, 0, 1, 0, 1, 0, 1],
+                    [1, 0, 1, 0, 0, 0, 1, 0, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1]])
 
-environment = Maze(envmatrix, (2, 7))
+environment = Maze(envmatrix, (7, 7))
 
 task = MDPMazeTask(environment)
 
@@ -34,7 +34,7 @@ plt.ion()
 plt.gray()
 
 for i in range(1000):
-    experiment.doInteractions(100)
+    experiment.doInteractions(1000)
     agent.learn()
     agent.reset()
 

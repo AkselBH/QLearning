@@ -24,3 +24,4 @@ print (('MSE before'), T.testOnData(D))
 T.trainOnDataset(D, 1000)
 T.trainUntilConvergence()
 print (('MSE after'), T.testOnData(D))
+print D

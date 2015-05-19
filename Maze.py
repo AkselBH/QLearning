@@ -1,5 +1,7 @@
 __author__ = 'Stubborn'
 
+  #!/usr/bin/env python
+
 from numpy import *
 from matplotlib import pyplot as plt
 
@@ -33,10 +35,18 @@ experiment = Experiment(task, agent)
 plt.ion()
 plt.gray()
 
-for i in range(1000):
-    experiment.doInteractions(1000)
-    agent.learn()
-    agent.reset()
+x = raw_input('Want to start?')
+yes = "yes"
+no = "no"
+if x == yes:
 
-    plt.pcolor(table.params.reshape(81,4).max(axis=1).reshape(9, 9))
-    plt.gcf().canvas.draw()
+    for i in range(1000):
+        experiment.doInteractions(1000)
+        agent.learn()
+        agent.reset()
+
+        plt.pcolor(table.params.reshape(81,4).max(axis=1).reshape(9, 9))
+        plt.gcf().canvas.draw()
+
+else:
+    print "YOLO"

@@ -52,7 +52,7 @@ pylab.ion()
 for i in range(1000):
 
     # interact with the environment (here in batch mode)
-    experiment.doInteractions(100)
+    experiment.doInteractions(1000)
     agent.learn()
     agent.reset()
 

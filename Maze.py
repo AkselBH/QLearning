@@ -21,12 +21,31 @@ envmatrix = array([[1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 0, 1, 0, 0, 0, 1, 0, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1]])
 
-environment = Maze(envmatrix, (7, 7))
+envmatrix2 = array([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+                    [1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+                    [1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
+                    [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+                    [1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1],
+                    [1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    [1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1],
+                    [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1],
+                    [1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+                    [1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
+                    [1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+                    [1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1],
+                    [1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1],
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]])
+
+environment = Maze(envmatrix2, (7, 7))
 
 task = MDPMazeTask(environment)
 
-table = ActionValueTable(81, 4)
-table.initialize(2.)
+table = ActionValueTable(324, 4)
+table.initialize(3.)
 
 agent = LearningAgent(table, Q())
 
@@ -34,6 +53,7 @@ experiment = Experiment(task, agent)
 
 plt.ion()
 plt.hot()
+#plt.set_cmap() Fix bakgrundsfarg
 
 x = raw_input('Want to start?')
 yes = "yes"
@@ -45,7 +65,7 @@ if x == yes:
         agent.learn()
         agent.reset()
 
-        plt.pcolor(table.params.reshape(81,4).max(axis=1).reshape(9, 9))
+        plt.pcolor(table.params.reshape(324,4).max(axis=1).reshape(18, 18))
         plt.gcf().canvas.draw()
 
 else:

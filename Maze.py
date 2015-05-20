@@ -40,7 +40,7 @@ envmatrix2 = array([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]])
 
-environment = Maze(envmatrix2, (7, 7))
+environment = Maze(envmatrix2, (6, 7))
 
 task = MDPMazeTask(environment)
 
@@ -69,4 +69,4 @@ if x == yes:
         plt.gcf().canvas.draw()
 
 else:
-    print "YOLO"
+    print "Wrong answer"
